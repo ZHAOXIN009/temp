@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class person {
+private:
+	string name;
+	
+
+public:
+	int state = -1;
+
+	void set_name(string myname) {
+		name = myname;
+
+	}
+
+	void show_name() {
+		cout << name<<":";
+	}
+
+	
+
+
+};
+int main()
+{
+	person A, B;
+	string myname;
+	cout << "A's name?" <<endl;
+	cin >> myname;
+	A.set_name(myname);
+	
+	cout << "B's name?" <<endl;
+	cin >> myname;
+	B.set_name(myname);
+
+	int mystate;
+
+	cout << "if connect? 1 or -1"<<endl;
+	cin >> mystate;
+	A.state=mystate;
+	B.state=mystate;
+
+	string Aword, Bword;
+	while (A.state == 1 && B.state == 1) {
+		A.show_name();
+		cin >> Aword;
+		if (Aword == "discon") {
+			A.state = -1;
+			B.state = -1;
+			break;
+		}
+		B.show_name();
+		cin >> Bword;
+		if ( Bword == "discon") {
+			A.state = -1;
+			B.state = -1;
+			break;
+		}
+
+
+
+	}
+	
+}
